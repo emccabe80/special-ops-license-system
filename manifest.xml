@@ -3,11 +3,11 @@
   Special OPS — Add-in Manifest
   ========================================
   Placeholders you MUST replace before this works — see SETUP_GUIDE.md:
-    YOUR-GITHUB-USERNAME   -> wherever you host the addin/ files (GitHub Pages, etc.)
+    Hosted at: https://emccabe80.github.io/special-ops-license-system/
     Azure app registration ("Special OPS Access Control"):
       Client ID: feab1bc7-3546-4d1a-a4db-f6431d0e1980
       Tenant ID: 20588be3-3863-4403-b036-127ca0b3f9b4 (MJM Construction Management, single-tenant)
-      Both already filled in below. Only YOUR-GITHUB-USERNAME still needs setting once hosted.
+      Both filled in below, and GitHub Pages URL now set too.
 
   This targets Excel specifically (Workbook host) and requests SSO so the
   add-in can identify the signed-in user without a manual sign-in prompt.
@@ -19,18 +19,18 @@
     xmlns:ov="http://schemas.microsoft.com/office/taskpaneappversionoverrides"
     xsi:type="TaskPaneApp">
 
-  <Id>b6f1a2c4-8e3d-4a1f-9c2b-specialopssystem</Id>
+  <Id>16ee5dbd-704f-428f-bd74-266789d6eb85</Id>
   <Version>1.0.0.0</Version>
   <ProviderName>Uncomfortable Action Limited</ProviderName>
   <DefaultLocale>en-US</DefaultLocale>
   <DisplayName DefaultValue="Special OPS — Access Control" />
   <Description DefaultValue="Verifies authorization before this workbook can be used." />
-  <IconUrl DefaultValue="https://YOUR-GITHUB-USERNAME.github.io/special-ops-license-system/icon-32.png" />
-  <HighResolutionIconUrl DefaultValue="https://YOUR-GITHUB-USERNAME.github.io/special-ops-license-system/icon-80.png" />
-  <SupportUrl DefaultValue="https://YOUR-GITHUB-USERNAME.github.io/special-ops-license-system/support.html" />
+  <IconUrl DefaultValue="https://emccabe80.github.io/special-ops-license-system/icon-32.png" />
+  <HighResolutionIconUrl DefaultValue="https://emccabe80.github.io/special-ops-license-system/icon-80.png" />
+  <SupportUrl DefaultValue="https://emccabe80.github.io/special-ops-license-system/support.html" />
 
   <AppDomains>
-    <AppDomain>https://YOUR-GITHUB-USERNAME.github.io</AppDomain>
+    <AppDomain>https://emccabe80.github.io</AppDomain>
     <AppDomain>https://login.microsoftonline.com</AppDomain>
   </AppDomains>
 
@@ -39,7 +39,7 @@
   </Hosts>
 
   <DefaultSettings>
-    <SourceLocation DefaultValue="https://YOUR-GITHUB-USERNAME.github.io/special-ops-license-system/taskpane.html" />
+    <SourceLocation DefaultValue="https://emccabe80.github.io/special-ops-license-system/taskpane.html" />
   </DefaultSettings>
 
   <Permissions>ReadWriteDocument</Permissions>
@@ -48,7 +48,7 @@
        user's identity via Office.js, rather than prompting a manual login. -->
   <WebApplicationInfo>
     <Id>feab1bc7-3546-4d1a-a4db-f6431d0e1980</Id>
-    <Resource>api://feab1bc7-3546-4d1a-a4db-f6431d0e1980</Resource>
+    <Resource>api://emccabe80.github.io/feab1bc7-3546-4d1a-a4db-f6431d0e1980</Resource>
     <Scopes>
       <Scope>openid</Scope>
       <Scope>profile</Scope>
@@ -65,6 +65,11 @@
             <OfficeTab id="TabHome">
               <Group id="SpecialOps.Group1">
                 <Label resid="Group1.Label" />
+                <Icon>
+                  <bt:Image size="16" resid="Icon.16x16" />
+                  <bt:Image size="32" resid="Icon.32x32" />
+                  <bt:Image size="80" resid="Icon.80x80" />
+                </Icon>
                 <Control xsi:type="Button" id="SpecialOps.TaskpaneButton">
                   <Label resid="TaskpaneButton.Label" />
                   <Supertip>
@@ -90,13 +95,13 @@
 
     <Resources>
       <bt:Images>
-        <bt:Image id="Icon.16x16" DefaultValue="https://YOUR-GITHUB-USERNAME.github.io/special-ops-license-system/icon-16.png" />
-        <bt:Image id="Icon.32x32" DefaultValue="https://YOUR-GITHUB-USERNAME.github.io/special-ops-license-system/icon-32.png" />
-        <bt:Image id="Icon.80x80" DefaultValue="https://YOUR-GITHUB-USERNAME.github.io/special-ops-license-system/icon-80.png" />
+        <bt:Image id="Icon.16x16" DefaultValue="https://emccabe80.github.io/special-ops-license-system/icon-16.png" />
+        <bt:Image id="Icon.32x32" DefaultValue="https://emccabe80.github.io/special-ops-license-system/icon-32.png" />
+        <bt:Image id="Icon.80x80" DefaultValue="https://emccabe80.github.io/special-ops-license-system/icon-80.png" />
       </bt:Images>
       <bt:Urls>
-        <bt:Url id="Commands.Url" DefaultValue="https://YOUR-GITHUB-USERNAME.github.io/special-ops-license-system/taskpane.html" />
-        <bt:Url id="Taskpane.Url" DefaultValue="https://YOUR-GITHUB-USERNAME.github.io/special-ops-license-system/taskpane.html" />
+        <bt:Url id="Commands.Url" DefaultValue="https://emccabe80.github.io/special-ops-license-system/taskpane.html" />
+        <bt:Url id="Taskpane.Url" DefaultValue="https://emccabe80.github.io/special-ops-license-system/taskpane.html" />
       </bt:Urls>
       <bt:ShortStrings>
         <bt:String id="Group1.Label" DefaultValue="Access Control" />
