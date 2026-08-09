@@ -37,7 +37,7 @@ async function runAccessCheck() {
   try {
     email = await getSignedInEmail();
   } catch (err) {
-    return lockWorkbook("Could not verify your Microsoft 365 identity. Make sure you're signed in to Office, then reopen this file.");
+    return lockWorkbook("Could not verify your Microsoft 365 identity. Details: " + (err && err.message ? err.message : JSON.stringify(err)) + (err && err.code ? " (code: " + err.code + ")" : ""));
   }
 
   let fileId = await getStoredFileId();
@@ -70,7 +70,7 @@ function mintInstanceId(email) {
 async function getSignedInEmail() {
   // Office SSO: returns an Azure AD token for the signed-in user without
   // a manual login prompt, as long as they're already signed into Office.
-  const token = await OfficeRuntime.auth.getAccessToken({ allowSignInPrompt: true, forMSGraphAccess: false });
+  const token = await OfficeRuntime.auth.getAccessToken({ allowSignInPrompt: true, allowConsentPrompt: true, forMSGraphAccess: false });
   const claims = decodeJwtClaims(token);
   return claims.preferred_username || claims.upn || claims.email;
 }
